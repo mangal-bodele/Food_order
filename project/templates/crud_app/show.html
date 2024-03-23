@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+        <title>Title</title>
+{% endblock %}
+{% block content %}
+  <div >
+      <table class="table table-bordered border border-4 p-3">
+          <thead>
+            <tr class="table-dark"
+
+            >
+              <th>ID</th>
+              <th>PERSON NAME</th>
+              <th>ORDERS</th>
+              <th>PRICE</th>
+              <th>TIME</th>
+              <th>DELIVERED</th>
+              <th colspan="2">ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for foodorder in foodorders %}
+                <tr>
+                <td>{{ foodorder.id }}</td>
+                <td>{{ foodorder.person_name }}</td>
+                <td>{{ foodorder.order }}</td>
+                <td>{{ foodorder.price }}</td>
+                <td>{{ foodorder.time_of_order }}</td>
+                <td>{{ foodorder.delivered }}</td>
+                <td>
+                    <a href="{% url 'update_url' foodorder.id %}">
+                        <button class="butcol2 ">&nbspUpdate</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'cancel_url' foodorder.id %}">
+                        <button class="butcol1 ">&nbspDelete</button>
+                    </a>
+                </td>
+                </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+        <title>Title</title>
+{% endblock %}
+{% block content %}
+  <div class="col-3 m-auto p-3 border border-3 mt-5">
+      <h3 class="text-primary text-center">Food Order</h3>
+      <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit"class="col-5 m-auto p-2 " >
+          <input type="button" value="cancel" class="col-5  m-auto p-2 float-end">
+      </form>
+  </div>
+
+{% endblock %}
